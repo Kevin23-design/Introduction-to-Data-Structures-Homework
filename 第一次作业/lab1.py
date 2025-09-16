@@ -68,9 +68,9 @@ def show_all_students():
     if not students:
         print("当前没有学生信息。")
         return
-    print("\n所有学生信息如下：")
+    print("\n所有学生信息如下:")
     for idx, stu in enumerate(students, start=1):
-        print(f"第{idx}位学生:")
+        print(f"第{idx}位学生: ")
         for k, v in stu.items():
             print(f"  {k}: {v}")
         print("-" * 30)
