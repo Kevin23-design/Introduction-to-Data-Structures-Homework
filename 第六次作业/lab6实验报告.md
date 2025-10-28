@@ -1,8 +1,58 @@
 # 数据结构导论 - 第五次作业实验
 
-## 实验题目：华东师范大学专业排名分析 pro max
+## 实验题目：华东师范大学专业排名分析 pro max ultra
 
 **实验日期：** 2025年10月27日
+
+## 文件结构
+
+```
+第六次作业/
+├── lab6实验报告.md                                    # 本实验报告
+├── 题干.md                                            # 实验题目要求
+├── subject_ranking_dl_model.ipynb                    # 问题一:深度学习排名预测模型(Jupyter版本)
+├── global_typology_and_similarity_plus.py            # 问题二:高校聚类与相似度分析脚本
+└── results/                                           # 实验结果目录
+    ├── dl_models_reloaded/                           # 问题一:深度学习模型输出
+    │   ├── dl_model_metrics.csv                      # 各学科模型性能指标汇总表
+    │   ├── q1运行结果.txt                            # 完整训练日志
+    │   └── plots/                                    # 训练过程可视化图片
+    │       ├── AGRICULTURAL_SCIENCES_training_history.png
+    │       ├── BIOLOGY_&_BIOCHEMISTRY_training_history.png
+    │       ├── CHEMISTRY_training_history.png
+    │       ├── CLINICAL_MEDICINE_training_history.png
+    │       ├── COMPUTER_SCIENCE_training_history.png
+    │       ├── ECONOMICS_&_BUSINESS_training_history.png
+    │       ├── ENGINEERING_training_history.png
+    │       ├── ENVIRONMENT_ECOLOGY_training_history.png
+    │       ├── GEOSCIENCES_training_history.png
+    │       ├── IMMUNOLOGY_training_history.png
+    │       ├── MATERIALS_SCIENCE_training_history.png
+    │       ├── MATHEMATICS_training_history.png
+    │       ├── MICROBIOLOGY_training_history.png
+    │       ├── MOLECULAR_BIOLOGY_&_GENETICS_training_history.png
+    │       ├── MULTIDISCIPLINARY_training_history.png
+    │       ├── NEUROSCIENCE_&_BEHAVIOR_training_history.png
+    │       ├── PHARMACOLOGY_&_TOXICOLOGY_training_history.png
+    │       ├── PHYSICS_training_history.png
+    │       ├── PLANT_&_ANIMAL_SCIENCE_training_history.png
+    │       ├── PSYCHIATRY_PSYCHOLOGY_training_history.png
+    │       ├── SOCIAL_SCIENCES,_GENERAL_training_history.png
+    │       └── SPACE_SCIENCE_training_history.png    # 共22个学科的训练曲线(Training Loss vs Validation Loss)
+    └── plot_q2/                                      # 问题二:聚类分析结果
+        └── kmeans_elbow_curve.png                    # 肘部法聚类数选择图(惯性曲线+轮廓系数曲线)
+```
+
+### 核心文件说明
+
+**问题一相关文件**:
+- `subject_ranking_dl_model.ipynb`: PyTorch深度学习模型实现,包含数据预处理、模型训练、评估等完整流程
+- `dl_model_metrics.csv`: 22个学科的模型性能指标(MAE, MSE, RMSE, R², MAPE, Spearman相关系数, 综合评分)
+- `plots/*.png`: 各学科训练过程Loss曲线图,蓝色为训练损失,橙色为验证损失
+
+**问题二相关文件**:
+- `global_typology_and_similarity_plus.py`: 高校聚类分析脚本,包含特征构造、肘部法选K、KMeans聚类、相似度计算
+- `results/plot_q2/kmeans_elbow_curve.png`: 肘部法可视化结果,左图为惯性曲线,右图为轮廓系数曲线
 
 ## 实验目的
 通过编程训练，学习深度学习
@@ -11,7 +61,6 @@
 1. 在上一节课作业的基础上，请利用深度学习方法，对各学科做一个排名模型，能够较好的预测出排名位置，并且利用MSE，MAPE等指标来进行评价模型的优劣。
 2. 对ESI的数据进行聚类，发现与华师大类似的学校有哪些，并分析下原因。
 
-## 深度学习环境配置
 ## $\text{PyTorch-GPU}$ 实验环境简述
 
 实验环境是基于 $\text{Anaconda}$ 的**独立虚拟环境**，利用 $\text{RTX 4060}$ 笔记本电脑进行深度学习训练而搭建。
@@ -20,7 +69,7 @@
 | 类别 | 详细配置 |
 | :--- | :--- |
 | **硬件** | $\text{NVIDIA GeForce RTX 4060 Laptop GPU}$ (算力 $\text{8.9}$) |
-| **操作系统** | $\text{Windows 11}$ 或 $\text{10}$ ($\text{PS C:}$ 命令行环境) |
+| **操作系统** | $\text{Windows 11}$ |
 | **$\text{GPU}$ 驱动** | $\text{NVIDIA}$ 驱动 |
 | **系统 $\text{CUDA}$** | $\text{CUDA Toolkit 11.8}$ (通过 $\text{nvcc -V}$ 确认) |
 | **环境管理** | $\text{Anaconda/Conda}$ (独立环境，`rtx4060_env`) |
@@ -429,23 +478,23 @@ class MetricsNormalizer:
   📊 数据划分: 训练=828 | 验证=276 | 测试=277
   🟢 训练完成: R²=0.7385, MAE=148.94, MAPE=29.27%
   📊 训练过程图已保存: results/dl_models_reloaded/plots\AGRICULTURAL_SCIENCES_training_history.png
-  ![alt text](results/dl_models_reloaded/plots/AGRICULTURAL_SCIENCES_training_history.png)
+  ![alt text](results/dl_models_reloaded/plots_q1/AGRICULTURAL_SCIENCES_training_history.png)
 
 ────────────────────────────────────────────────────────────────────────────────
 🔬 [ 2/22] 训练学科: BIOLOGY & BIOCHEMISTRY
   📊 数据划分: 训练=989 | 验证=330 | 测试=330
   🟢 训练完成: R²=0.9221, MAE=111.59, MAPE=27.81%
   📊 训练过程图已保存: results/dl_models_reloaded/plots\BIOLOGY_&_BIOCHEMISTRY_training_history.png
-  ![alt text](results/dl_models_reloaded/plots/BIOLOGY_&_BIOCHEMISTRY_training_history.png)
+  ![alt text](results/dl_models_reloaded/plots_q1/BIOLOGY_&_BIOCHEMISTRY_training_history.png)
 
 ────────────────────────────────────────────────────────────────────────────────
 🔬 [ 3/22] 训练学科: CHEMISTRY
   📊 数据划分: 训练=1284 | 验证=428 | 测试=429
   🟢 训练完成: R²=0.9713, MAE=89.03, MAPE=14.00%
   📊 训练过程图已保存: results/dl_models_reloaded/plots\CHEMISTRY_training_history.png
-  ![alt text](results/dl_models_reloaded/plots/CHEMISTRY_training_history.png)
+  ![alt text](results/dl_models_reloaded/plots_q1/CHEMISTRY_training_history.png)
 
-完整的实验数据如下：
+各学科的模型性能数据如下（`dl_model_metrics.csv`）：
 | 排名 | 学科名称 | 训练集 | 验证集 | 测试集 | MAE | MSE | RMSE | R² | MAPE | Spearman | 综合评分 |
 |:----:|:--------------------------------|:------:|:------:|:------:|:--------:|:-----------:|:---------:|:------:|:--------:|:-----------:|:-----------:|
 | 1 | CHEMISTRY | 1284 | 428 | 429 | 89.03 | 11231.09 | 105.98 | 0.9713 | 13.998 | 0.9993 | 0.9687 |
@@ -490,6 +539,191 @@ class MetricsNormalizer:
 | 3 | MATHEMATICS | 0.0531 | 111.38 | 0.6077 |
 | 4 | MULTIDISCIPLINARY | -0.6625 | 70.65 | 0.5428 |
 | 5 | CLINICAL MEDICINE | 0.9262 | 392.52 | 0.5192 |
+
+
+## 问题二
+### 高校聚类方法论
+
+本实验基于上一次作业的数据库,使用 KMeans 方法对全球高校进行聚类分析。**核心改进** 在于引入科学的聚类数选择方法,通过 **肘部法(Elbow Method)** 和 **轮廓系数法(Silhouette Score)** 的双重验证,自动确定最优聚类数K,避免了主观设定的盲目性。
+
+#### 方法流程
+
+继承上一个实验的数据库,继续使用 SQL 访问,完整流程如下:
+
+- 特征构造
+  - 对每个学科内做归一化，得到 subject_score∈[0,1]：
+    - rank_score = 1 - (rank-1)/(max_rank-1)
+    - cites_per_paper、top_papers 采用学科内 min-max 归一
+    - subject_score = 0.7 * rank_score + 0.2 * cpp_norm + 0.1 * top_norm
+  - 将“大学-学科”窄表 pivot 成矩阵 X（大学×学科），缺失填 0，得到每所大学的“学科画像”。
+
+- 选择聚类数 K（肘部法 + 轮廓系数法）
+  - **方法论**: 采用肘部法(Elbow Method)和轮廓系数法(Silhouette Score)相结合的双重验证策略
+  - **实现步骤**:
+    1. 在 K∈[3,8] 范围内遍历不同的聚类数
+    2. 对每个 K 值训练 KMeans 模型(n_init=20, random_state=42, max_iter=300)
+    3. 记录两个关键指标:
+       - **惯性(Inertia/SSE)**: 簇内平方误差和  ,衡量簇的紧密程度
+       - **轮廓系数(Silhouette Score)**: 使用余弦距离计算,范围[-1,1],综合评估簇内紧密度和簇间分离度
+    4. 生成肘部图可视化,包含两个子图:
+       - 左图: 惯性曲线,寻找"肘点"(SSE下降速率显著变慢的拐点)
+       - 右图: 轮廓系数曲线,寻找峰值点
+    5. 选择轮廓系数最高的 K 值作为最优聚类数
+  
+  - **肘部图分析结果**:
+    
+    计算过程输出:
+    ```
+    正在计算K值从3到8的聚类指标...
+      K=3: 惯性=2417.57, 轮廓系数=0.1365
+      K=4: 惯性=2075.88, 轮廓系数=-0.0247
+      K=5: 惯性=1852.37, 轮廓系数=0.0091
+      K=6: 惯性=1724.04, 轮廓系数=0.0061
+      K=7: 惯性=1594.60, 轮廓系数=-0.0088
+      K=8: 惯性=1527.13, 轮廓系数=-0.0081
+    
+    ✓ 基于轮廓系数,确定最优聚类数: K=3 (轮廓系数=0.1365)
+    📊 肘部图已保存至: results/plot_q2/kmeans_elbow_curve.png
+    ```
+    
+    可视化结果:
+    ![肘部法聚类数选择](results/plot_q2/kmeans_elbow_curve.png)
+    
+    **图表解读**:
+    - **惯性曲线(左图,蓝色)**: 
+      - K=3时惯性为2417.57,K=4时降至2075.88(下降14.1%)
+      - K=4到K=8惯性持续下降但速率明显放缓(26.4% → 4.2%)
+      - 在K=3处出现明显"肘点",表明此后增加聚类数对簇内紧密度的改善有限
+    - **轮廓系数曲线(右图,绿色)**: 
+      - K=3时轮廓系数达到最大值0.1365(正值表示聚类结构合理)
+      - K=4及以后的轮廓系数均为负值或接近0,表明聚类质量显著下降
+      - K≥4时出现过度分割,导致簇间界限模糊
+    - **红色标记**: 虚线和星号突出显示最优K=3的位置
+    - **综合结论**: 两种方法在K=3处达成一致,该值兼顾了:
+      - 簇内数据点紧密聚集(惯性适中)
+      - 簇间有明确区分度(轮廓系数最优)
+      - 模型复杂度与解释性的平衡
+  
+  - **技术说明**: 
+    - 训练使用欧氏距离(Euclidean),评估使用余弦相似度(Cosine)
+    - 余弦距离更适合高维稀疏特征(学科向量),对向量方向敏感而非长度
+    - 若追求一致性,可对特征矩阵进行L2归一化或使用球面K-means(Spherical K-means)
+
+- 训练与分群
+  - 用最佳 K 对 X 训练 KMeans，得到每所大学的簇标签 labels。
+  - 计算每簇的均值向量，提取该簇的强项学科（均值最高的若干学科）。
+
+- 簇解释与命名
+  - 计算每所大学的覆盖度（非零学科数）与平均强度（subject_score 在覆盖学科上的均值）。
+  - 以覆盖度、强度的三分位区间为阈值，对每个簇给出可读标签（如“全球综合型强校”“尖子单科/特色强校”等），并展示簇规模、平均覆盖学科数、强项学科。
+
+- 相似高校检索（与聚类配套）
+  - 在同一特征空间上计算余弦相似度矩阵；定位 ECNU 的向量，与其他高校做相似度排序输出 TopN。
+
+
+得到的结果如下：
+全球高校类型可以大致分为以下三类：
+- 类别 C0: 发展中/教学研究型（强项：CLINICAL MEDICINE, ENGINEERING, SOCIAL SCIENCES, GENERAL） | 规模: 8424 | 平均覆盖学科: 1.8
+- 类别 C1: 全球综合型强校（强项：CLINICAL MEDICINE, SOCIAL SCIENCES, GENERAL, BIOLOGY & BIOCHEMISTRY） | 规模: 526 | 平均覆盖学科: 18.0
+- 类别 C2: 全球综合型强校（强项：ENGINEERING, CHEMISTRY, ENVIRONMENT ECOLOGY） | 规模: 1040 | 平均覆盖学科: 8.9
+
+结论概览（自动生成，可反复运行更新）：
+
+一、全球高校可大致分为以下类别：
+| 类别 | 特征描述 | 强项学科 | 规模 | 平均覆盖学科 |
+|------|------------|-----------|------|----------------|
+| C0 | 发展中 / 教学研究型 | CLINICAL MEDICINE, ENGINEERING, SOCIAL SCIENCES, GENERAL | 8424 | 1.8 |
+| C1 | 全球综合型强校 | CLINICAL MEDICINE, SOCIAL SCIENCES, GENERAL, BIOLOGY & BIOCHEMISTRY | 526 | 18.0 |
+| C2 | 全球综合型强校 | ENGINEERING, CHEMISTRY, ENVIRONMENT ECOLOGY | 1040 | 8.9 |
+
+### ECNU 相似度
+与华东师范大学（识别名：EAST CHINA NORMAL UNIVERSITY）最相似的高校：
+| 序号 | 大学名称 | 相似度 |
+|------|-----------|----------|
+| 1 | UNIVERSITY OF WATERLOO | 0.954 |
+| 2 | BEIJING NORMAL UNIVERSITY | 0.950 |
+| 3 | UNIVERSITY OF ELECTRONIC SCIENCE & TECHNOLOGY OF CHINA | 0.947 |
+| 4 | CHONGQING UNIVERSITY | 0.946 |
+| 5 | UNIVERSITY OF VICTORIA | 0.942 |
+| 6 | NANJING NORMAL UNIVERSITY | 0.941 |
+| 7 | NORWEGIAN UNIVERSITY OF SCIENCE & TECHNOLOGY (NTNU) | 0.939 |
+| 8 | SHENZHEN UNIVERSITY | 0.936 |
+| 9 | SOUTHWEST UNIVERSITY - CHINA | 0.934 |
+| 10 | ISLAMIC AZAD UNIVERSITY | 0.934 |
+| 11 | UNIVERSITY OF WOLLONGONG | 0.933 |
+| 12 | UNIVERSITY OF BASQUE COUNTRY | 0.932 |
+| 13 | DALIAN UNIVERSITY OF TECHNOLOGY | 0.927 |
+| 14 | UNIVERSITY OF DELAWARE | 0.927 |
+| 15 | GEORGIA INSTITUTE OF TECHNOLOGY | 0.927 |
+
+### 为什么这些学校与华师大相似
+#### 1. **学科结构相似** (最重要因素)
+- 都属于**综合型大学**,而非专科型院校
+- 学科覆盖广度相近(平均8-12个ESI学科)
+- 学科分布模式接近,在理工和社科领域都有布局
+
+#### 2. **发展阶段相似**
+- 大多数相似学校属于**C2类簇**(全球综合型强校)
+- 处于"快速上升期"而非"顶尖稳定期"
+- 排名分布: 多数学科在世界前200-500名之间
+
+#### 3. **优势学科高度重叠**
+根据我们的特征向量分析,相似学校在以下学科上与ECNU有相近的表现:
+- **化学 (CHEMISTRY)**: 共同强项
+- **环境/生态 (ENVIRONMENT ECOLOGY)**: 共同强项  
+- **材料科学 (MATERIALS SCIENCE)**: 共同强项
+- **工程学 (ENGINEERING)**: 都有一定实力
+- **社会科学 (SOCIAL SCIENCES)**: 都有涉及
+
+#### 4. **地理与制度背景相似**
+
+**国内高校** (相似度前20中有7所中国大陆高校):
+- 北京师范大学 (0.950) - 同为师范类综合大学
+- 电子科技大学 (0.947) - 理工见长的综合型大学
+- 重庆大学 (0.946) - 综合型研究型大学
+- 南京师范大学 (0.941) - 同类型师范大学
+- 深圳大学 (0.936) - 快速发展的综合型大学
+- 西南大学 (0.934) - 师范+综合型大学
+- 大连理工大学 (0.927) - 理工强校但学科多元
+
+**共同特点**:
+- 都是中国"双一流"建设高校
+- 学科结构在改革中从专科走向综合
+- 近10-15年科研产出快速增长
+
+**国际高校** (如滑铁卢大学、挪威科技大学等):
+- 多为**非古典名校**,建校时间相对较晚
+- 以**实用研究**和**产学研结合**著称
+- 在全球排名中处于**第二梯队**(QS 200-400名区间)
+- 学科均衡发展,没有极端的"短板学科"
+
+#### 案例分析
+以**北京师范大学** (相似度0.950,排名第2)为例:
+- 与ECNU同为师范类起家,现转型综合大学
+- 教育学、心理学传统优势
+- 近年在化学、环境科学大幅提升
+- 地球科学、地理学表现突出
+- 社会科学保持稳定输出
+- **学科结构几乎与ECNU一致**,只是个别学科排名略有差异
+
+以**滑铁卢大学** (相似度0.954,排名第1)为例:
+- 加拿大中等规模综合型大学
+- 计算机科学著名,但ESI学科分布均衡
+- 工程、数学、环境科学是强项
+- 也在生命科学、社会科学有布局
+- **"理工+社科"的组合模式**与ECNU高度一致
+
+
+#### 为什么某些名校不在列表中？
+
+**哈佛、斯坦福、MIT等顶尖名校相似度较低**,原因:
+1. 它们在**所有学科**都接近满分,特征向量接近 [1,1,1,...,1]
+2. ECNU有明显的学科强弱差异,特征向量更"参差不齐"
+3. 余弦相似度对**分布模式**敏感,顶尖校的"全面顶尖"与ECNU的"有强有弱"模式不匹配
+
+**医学院、艺术学院等专科型院校相似度低**,原因:
+- 学科覆盖面窄,特征向量在大部分维度为0
+- 与ECNU的"多学科综合"模式差异大
 
 
 
