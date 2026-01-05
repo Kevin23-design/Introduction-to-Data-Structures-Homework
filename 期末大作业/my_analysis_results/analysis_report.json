@@ -1,0 +1,53 @@
+{
+  "platforms": {
+    "zhihu": {
+      "name": "知乎",
+      "total_count": 1721,
+      "positive_count": 738,
+      "negative_count": 610,
+      "neutral_count": 373,
+      "positive_ratio": "42.88%",
+      "avg_sentiment": 0.039048866937826776,
+      "total_heat": "35666.50",
+      "avg_heat": "20.72"
+    },
+    "xhs": {
+      "name": "小红书",
+      "total_count": 2568,
+      "positive_count": 1139,
+      "negative_count": 791,
+      "neutral_count": 638,
+      "positive_ratio": "44.35%",
+      "avg_sentiment": 0.08907795950155757,
+      "total_heat": "389893.00",
+      "avg_heat": "151.83"
+    },
+    "tieba": {
+      "name": "贴吧",
+      "total_count": 272,
+      "positive_count": 97,
+      "negative_count": 86,
+      "neutral_count": 89,
+      "positive_ratio": "35.66%",
+      "avg_sentiment": 0.036290073529411764,
+      "total_heat": "2310.00",
+      "avg_heat": "8.49"
+    }
+  },
+  "time_range": {
+    "start": "2025-08-01",
+    "end": "2025-11-16"
+  },
+  "interval": "week",
+  "keywords": [
+    "android",
+    "安卓"
+  ],
+  "content_type": "all",
+  "charts": [
+    "zhihu_sentiment_trend_week.png",
+    "xhs_sentiment_trend_week.png",
+    "tieba_sentiment_trend_week.png",
+    "comparison_sentiment_trend_week.png"
+  ]
+}

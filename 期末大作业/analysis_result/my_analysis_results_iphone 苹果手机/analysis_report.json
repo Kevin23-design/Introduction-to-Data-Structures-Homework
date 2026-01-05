@@ -1,0 +1,53 @@
+{
+  "platforms": {
+    "zhihu": {
+      "name": "知乎",
+      "total_count": 3171,
+      "positive_count": 1290,
+      "negative_count": 1180,
+      "neutral_count": 701,
+      "positive_ratio": "40.68%",
+      "avg_sentiment": 0.027845884578997226,
+      "total_heat": "4591.02",
+      "avg_heat": "1.45"
+    },
+    "xhs": {
+      "name": "小红书",
+      "total_count": 3488,
+      "positive_count": 1203,
+      "negative_count": 1288,
+      "neutral_count": 997,
+      "positive_ratio": "34.49%",
+      "avg_sentiment": -0.011169524082568763,
+      "total_heat": "17018.97",
+      "avg_heat": "4.88"
+    },
+    "tieba": {
+      "name": "贴吧",
+      "total_count": 1373,
+      "positive_count": 431,
+      "negative_count": 564,
+      "neutral_count": 378,
+      "positive_ratio": "31.39%",
+      "avg_sentiment": -0.04728281136198109,
+      "total_heat": "1121.29",
+      "avg_heat": "0.82"
+    }
+  },
+  "time_range": {
+    "start": "2025-08-01",
+    "end": "2025-11-16"
+  },
+  "interval": "week",
+  "keywords": [
+    "iphone",
+    "苹果手机"
+  ],
+  "content_type": "all",
+  "charts": [
+    "zhihu_sentiment_trend_week.png",
+    "xhs_sentiment_trend_week.png",
+    "tieba_sentiment_trend_week.png",
+    "comparison_sentiment_trend_week.png"
+  ]
+}

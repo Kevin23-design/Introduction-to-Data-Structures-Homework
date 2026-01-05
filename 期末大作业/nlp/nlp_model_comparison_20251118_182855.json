@@ -1,0 +1,469 @@
+{
+  "timestamp": "2025-11-18T18:28:55.008651",
+  "overall_results": {
+    "snownlp": {
+      "model_description": "SnowNLP - 基于朴素贝叶斯的中文情感分析",
+      "accuracy": 0.8361111111111111,
+      "precision": 0.8400431681681682,
+      "recall": 0.8361111111111111,
+      "f1_score": 0.8279157033145146,
+      "sample_count": 360,
+      "confusion_matrix": [
+        [
+          123,
+          2,
+          5
+        ],
+        [
+          16,
+          49,
+          22
+        ],
+        [
+          9,
+          5,
+          129
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.831081081081081,
+          "recall": 0.9461538461538461,
+          "f1-score": 0.8848920863309353,
+          "support": 130.0
+        },
+        "neutral": {
+          "precision": 0.875,
+          "recall": 0.5632183908045977,
+          "f1-score": 0.6853146853146853,
+          "support": 87.0
+        },
+        "negative": {
+          "precision": 0.8269230769230769,
+          "recall": 0.9020979020979021,
+          "f1-score": 0.862876254180602,
+          "support": 143.0
+        },
+        "accuracy": 0.8361111111111111,
+        "macro avg": {
+          "precision": 0.8443347193347194,
+          "recall": 0.8038233796854487,
+          "f1-score": 0.8110276752754074,
+          "support": 360.0
+        },
+        "weighted avg": {
+          "precision": 0.8400431681681682,
+          "recall": 0.8361111111111111,
+          "f1-score": 0.8279157033145148,
+          "support": 360.0
+        }
+      }
+    },
+    "rule_based": {
+      "model_description": "RuleBased - 基于情感词典和规则的分析",
+      "accuracy": 0.3611111111111111,
+      "precision": 0.41922674162257495,
+      "recall": 0.3611111111111111,
+      "f1_score": 0.33619999510241966,
+      "sample_count": 360,
+      "confusion_matrix": [
+        [
+          37,
+          62,
+          31
+        ],
+        [
+          13,
+          67,
+          7
+        ],
+        [
+          22,
+          95,
+          26
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.5138888888888888,
+          "recall": 0.2846153846153846,
+          "f1-score": 0.36633663366336633,
+          "support": 130.0
+        },
+        "neutral": {
+          "precision": 0.29910714285714285,
+          "recall": 0.7701149425287356,
+          "f1-score": 0.43086816720257237,
+          "support": 87.0
+        },
+        "negative": {
+          "precision": 0.40625,
+          "recall": 0.18181818181818182,
+          "f1-score": 0.25120772946859904,
+          "support": 143.0
+        },
+        "accuracy": 0.3611111111111111,
+        "macro avg": {
+          "precision": 0.4064153439153439,
+          "recall": 0.41218283632076735,
+          "f1-score": 0.3494708434448459,
+          "support": 360.0
+        },
+        "weighted avg": {
+          "precision": 0.41922674162257495,
+          "recall": 0.3611111111111111,
+          "f1-score": 0.33619999510241966,
+          "support": 360.0
+        }
+      }
+    },
+    "hybrid_6_4": {
+      "model_description": "Hybrid_6_4 - SnowNLP(60%) + RuleBased(40%)",
+      "accuracy": 0.8638888888888889,
+      "precision": 0.8630972096758004,
+      "recall": 0.8638888888888889,
+      "f1_score": 0.8632106484065847,
+      "sample_count": 360,
+      "confusion_matrix": [
+        [
+          118,
+          6,
+          6
+        ],
+        [
+          9,
+          67,
+          11
+        ],
+        [
+          8,
+          9,
+          126
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.8740740740740741,
+          "recall": 0.9076923076923077,
+          "f1-score": 0.8905660377358491,
+          "support": 130.0
+        },
+        "neutral": {
+          "precision": 0.8170731707317073,
+          "recall": 0.7701149425287356,
+          "f1-score": 0.7928994082840237,
+          "support": 87.0
+        },
+        "negative": {
+          "precision": 0.8811188811188811,
+          "recall": 0.8811188811188811,
+          "f1-score": 0.8811188811188811,
+          "support": 143.0
+        },
+        "accuracy": 0.8638888888888889,
+        "macro avg": {
+          "precision": 0.8574220419748876,
+          "recall": 0.8529753771133081,
+          "f1-score": 0.8548614423795846,
+          "support": 360.0
+        },
+        "weighted avg": {
+          "precision": 0.8630972096758004,
+          "recall": 0.8638888888888889,
+          "f1-score": 0.8632106484065846,
+          "support": 360.0
+        }
+      }
+    },
+    "hybrid_7_3": {
+      "model_description": "Hybrid_7_3 - SnowNLP(70%) + RuleBased(30%)",
+      "accuracy": 0.8666666666666667,
+      "precision": 0.8668105633145984,
+      "recall": 0.8666666666666667,
+      "f1_score": 0.8649286619569957,
+      "sample_count": 360,
+      "confusion_matrix": [
+        [
+          121,
+          3,
+          6
+        ],
+        [
+          11,
+          64,
+          12
+        ],
+        [
+          9,
+          7,
+          127
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.8581560283687943,
+          "recall": 0.9307692307692308,
+          "f1-score": 0.8929889298892989,
+          "support": 130.0
+        },
+        "neutral": {
+          "precision": 0.8648648648648649,
+          "recall": 0.735632183908046,
+          "f1-score": 0.7950310559006211,
+          "support": 87.0
+        },
+        "negative": {
+          "precision": 0.8758620689655172,
+          "recall": 0.8881118881118881,
+          "f1-score": 0.8819444444444444,
+          "support": 143.0
+        },
+        "accuracy": 0.8666666666666667,
+        "macro avg": {
+          "precision": 0.8662943207330588,
+          "recall": 0.851504434263055,
+          "f1-score": 0.8566548100781214,
+          "support": 360.0
+        },
+        "weighted avg": {
+          "precision": 0.8668105633145986,
+          "recall": 0.8666666666666667,
+          "f1-score": 0.8649286619569957,
+          "support": 360.0
+        }
+      }
+    },
+    "hybrid_5_5": {
+      "model_description": "Hybrid_5_5 - SnowNLP(50%) + RuleBased(50%)",
+      "accuracy": 0.7722222222222223,
+      "precision": 0.7932080091439231,
+      "recall": 0.7722222222222223,
+      "f1_score": 0.7784262696542628,
+      "sample_count": 360,
+      "confusion_matrix": [
+        [
+          99,
+          27,
+          4
+        ],
+        [
+          12,
+          65,
+          10
+        ],
+        [
+          8,
+          21,
+          114
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 0.8319327731092437,
+          "recall": 0.7615384615384615,
+          "f1-score": 0.7951807228915663,
+          "support": 130.0
+        },
+        "neutral": {
+          "precision": 0.5752212389380531,
+          "recall": 0.7471264367816092,
+          "f1-score": 0.65,
+          "support": 87.0
+        },
+        "negative": {
+          "precision": 0.890625,
+          "recall": 0.7972027972027972,
+          "f1-score": 0.8413284132841329,
+          "support": 143.0
+        },
+        "accuracy": 0.7722222222222223,
+        "macro avg": {
+          "precision": 0.7659263373490989,
+          "recall": 0.7686225651742893,
+          "f1-score": 0.7621697120585664,
+          "support": 360.0
+        },
+        "weighted avg": {
+          "precision": 0.7932080091439231,
+          "recall": 0.7722222222222223,
+          "f1-score": 0.7784262696542628,
+          "support": 360.0
+        }
+      }
+    },
+    "simple_threshold": {
+      "model_description": "SimpleThreshold - 基于标点和emoji的简单判断",
+      "accuracy": 0.24722222222222223,
+      "precision": 0.4198401613904407,
+      "recall": 0.24722222222222223,
+      "f1_score": 0.10543714296523285,
+      "sample_count": 360,
+      "confusion_matrix": [
+        [
+          2,
+          128,
+          0
+        ],
+        [
+          0,
+          87,
+          0
+        ],
+        [
+          0,
+          143,
+          0
+        ]
+      ],
+      "classification_report": {
+        "positive": {
+          "precision": 1.0,
+          "recall": 0.015384615384615385,
+          "f1-score": 0.030303030303030304,
+          "support": 130.0
+        },
+        "neutral": {
+          "precision": 0.2430167597765363,
+          "recall": 1.0,
+          "f1-score": 0.39101123595505616,
+          "support": 87.0
+        },
+        "negative": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 143.0
+        },
+        "accuracy": 0.24722222222222223,
+        "macro avg": {
+          "precision": 0.4143389199255121,
+          "recall": 0.3384615384615384,
+          "f1-score": 0.14043808875269548,
+          "support": 360.0
+        },
+        "weighted avg": {
+          "precision": 0.4198401613904407,
+          "recall": 0.24722222222222223,
+          "f1-score": 0.10543714296523285,
+          "support": 360.0
+        }
+      }
+    }
+  },
+  "platform_results": {
+    "zhihu": {
+      "snownlp": {
+        "model_description": "SnowNLP - 基于朴素贝叶斯的中文情感分析",
+        "accuracy": 0.8416666666666667,
+        "f1_score": 0.8318350168350168,
+        "sample_count": 120
+      },
+      "rule_based": {
+        "model_description": "RuleBased - 基于情感词典和规则的分析",
+        "accuracy": 0.325,
+        "f1_score": 0.3147860240488863,
+        "sample_count": 120
+      },
+      "hybrid_6_4": {
+        "model_description": "Hybrid_6_4 - SnowNLP(60%) + RuleBased(40%)",
+        "accuracy": 0.8583333333333333,
+        "f1_score": 0.8588527689494204,
+        "sample_count": 120
+      },
+      "hybrid_7_3": {
+        "model_description": "Hybrid_7_3 - SnowNLP(70%) + RuleBased(30%)",
+        "accuracy": 0.8583333333333333,
+        "f1_score": 0.8571582533722709,
+        "sample_count": 120
+      },
+      "hybrid_5_5": {
+        "model_description": "Hybrid_5_5 - SnowNLP(50%) + RuleBased(50%)",
+        "accuracy": 0.725,
+        "f1_score": 0.7457267334074899,
+        "sample_count": 120
+      },
+      "simple_threshold": {
+        "model_description": "SimpleThreshold - 基于标点和emoji的简单判断",
+        "accuracy": 0.2,
+        "f1_score": 0.0896451914098973,
+        "sample_count": 120
+      }
+    },
+    "xhs": {
+      "snownlp": {
+        "model_description": "SnowNLP - 基于朴素贝叶斯的中文情感分析",
+        "accuracy": 0.8166666666666667,
+        "f1_score": 0.8102781297939039,
+        "sample_count": 120
+      },
+      "rule_based": {
+        "model_description": "RuleBased - 基于情感词典和规则的分析",
+        "accuracy": 0.45,
+        "f1_score": 0.4258948761908895,
+        "sample_count": 120
+      },
+      "hybrid_6_4": {
+        "model_description": "Hybrid_6_4 - SnowNLP(60%) + RuleBased(40%)",
+        "accuracy": 0.8583333333333333,
+        "f1_score": 0.8578582202111614,
+        "sample_count": 120
+      },
+      "hybrid_7_3": {
+        "model_description": "Hybrid_7_3 - SnowNLP(70%) + RuleBased(30%)",
+        "accuracy": 0.8666666666666667,
+        "f1_score": 0.8663312055591467,
+        "sample_count": 120
+      },
+      "hybrid_5_5": {
+        "model_description": "Hybrid_5_5 - SnowNLP(50%) + RuleBased(50%)",
+        "accuracy": 0.7833333333333333,
+        "f1_score": 0.7843862433862434,
+        "sample_count": 120
+      },
+      "simple_threshold": {
+        "model_description": "SimpleThreshold - 基于标点和emoji的简单判断",
+        "accuracy": 0.3,
+        "f1_score": 0.13846153846153847,
+        "sample_count": 120
+      }
+    },
+    "tieba": {
+      "snownlp": {
+        "model_description": "SnowNLP - 基于朴素贝叶斯的中文情感分析",
+        "accuracy": 0.85,
+        "f1_score": 0.8433256372169121,
+        "sample_count": 120
+      },
+      "rule_based": {
+        "model_description": "RuleBased - 基于情感词典和规则的分析",
+        "accuracy": 0.30833333333333335,
+        "f1_score": 0.2697751322751323,
+        "sample_count": 120
+      },
+      "hybrid_6_4": {
+        "model_description": "Hybrid_6_4 - SnowNLP(60%) + RuleBased(40%)",
+        "accuracy": 0.875,
+        "f1_score": 0.8752796736862405,
+        "sample_count": 120
+      },
+      "hybrid_7_3": {
+        "model_description": "Hybrid_7_3 - SnowNLP(70%) + RuleBased(30%)",
+        "accuracy": 0.875,
+        "f1_score": 0.8742546703772253,
+        "sample_count": 120
+      },
+      "hybrid_5_5": {
+        "model_description": "Hybrid_5_5 - SnowNLP(50%) + RuleBased(50%)",
+        "accuracy": 0.8083333333333333,
+        "f1_score": 0.8131777445855115,
+        "sample_count": 120
+      },
+      "simple_threshold": {
+        "model_description": "SimpleThreshold - 基于标点和emoji的简单判断",
+        "accuracy": 0.24166666666666667,
+        "f1_score": 0.09407158836689038,
+        "sample_count": 120
+      }
+    }
+  }
+}

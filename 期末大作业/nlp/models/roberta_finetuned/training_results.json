@@ -1,0 +1,78 @@
+{
+  "model_name": "hfl/chinese-roberta-wwm-ext",
+  "training_config": {
+    "learning_rate": 2e-05,
+    "num_epochs": 3,
+    "batch_size": 16,
+    "max_length": 512,
+    "warmup_steps": 100,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0
+  },
+  "data_split": {
+    "total_samples": 360,
+    "train_samples": 251,
+    "val_samples": 54,
+    "test_samples": 55
+  },
+  "training_history": {
+    "train_loss": [
+      1.1797676421701908,
+      1.0821932926774025,
+      1.0380269885063171
+    ],
+    "train_acc": [
+      0.3466135458167331,
+      0.3904382470119522,
+      0.4581673306772908
+    ],
+    "val_loss": [
+      0.9667421132326126,
+      0.9958944320678711,
+      0.9592104405164719
+    ],
+    "val_acc": [
+      0.6111111111111112,
+      0.5185185185185185,
+      0.5555555555555556
+    ]
+  },
+  "best_model": {
+    "epoch": 1,
+    "val_accuracy": 0.6111111111111112
+  },
+  "test_results": {
+    "loss": 1.082426205277443,
+    "accuracy": 0.41818181818181815,
+    "precision": [
+      0.41818181818181815,
+      0.0,
+      0.0
+    ],
+    "recall": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "f1_score": [
+      0.5897435897435898,
+      0.0,
+      0.0
+    ],
+    "support": [
+      23,
+      13,
+      19
+    ]
+  },
+  "comparison": {
+    "zero_shot_accuracy": 0.2583,
+    "finetuned_accuracy": 0.41818181818181815,
+    "improvement": 0.15988181818181818
+  },
+  "training_time": {
+    "total_seconds": 58.034235,
+    "total_minutes": 0.96723725
+  },
+  "timestamp": "2026-01-05 13:45:29"
+}
